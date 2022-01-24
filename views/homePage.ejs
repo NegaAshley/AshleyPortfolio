@@ -1,0 +1,86 @@
+<%- include('partials/header')%>
+    <%- include('partials/navbar')%>
+        <section class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col-lg-6 d-flex d-none d-lg-block">
+                    <div id="headingGroup" class="text-center mt-5">
+                        <h1 class="display-2">ASHLEY<span>&lt;/&gt;</span>XU</h1>
+                        <h1 class="display-2">ASHLEY<span>&lt;/&gt;</span>XU</h1>
+                        <h1 class="display-2">ASHLEY<span>&lt;/&gt;</span>XU</h1>
+                        <h1 class="display-2">ASHLEY<span>&lt;/&gt;</span>XU</h1>
+                        <h1 class="display-2">ASHLEY<span>&lt;/&gt;</span>XU</h1>
+                        <h1 class="display-2">ASHLEY<span>&lt;/&gt;</span>XU</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6" id="profileImage">
+                    <img class="img-fluid" src="./imgs/ashleyTransparent.png"
+                        alt="Ashley Xu smiles at the camera in green overalls.">
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid px-0">
+            <div class="row align-items-center content">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <img class="img-fluid" src="./imgs/lightbulb.jpg"
+                        alt="A lightbulb is held up against and pink and blue sky.">
+                </div>
+                <div class="col-lg-6 text-center order-1 order-lg-2">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-md-8 blurb mb-5 mb-lg-0">
+                            <h2 id="about" class="frontPageHeader">About</h2>
+                            <i class="fas fa-code frontPageIcons"></i>
+                            <p class="lead">
+                                Ashley is an experienced software developer with a demonstrated history of working in
+                                the higher education
+                                industry.
+                                She is skilled in JavaScript, C#, Java, and Scrum. She is a strong engineering
+                                professional with a
+                                Bachelor's degree
+                                focused in Computer Science from Purdue University. She also enjoys knitting,
+                                videogames,
+                                and cats.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid px-0">
+            <div class="row align-items-center content">
+
+                <div class="col-lg-6 text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-md-8 blurb mb-5 mb-md-0">
+                            <h2 id="contact" class="frontPageHeader">Contact</h2>
+                            <p class="lead">
+                                <a href="mailto:ashleymxu@gmail.com.com">
+                                    <i class="fas fa-3x fa-envelope-square frontPageIcons"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/ashley-xu-053598140/">
+                                    <i class="fab fa-3x fa-linkedin lead frontPageIcons"
+                                        href="https://www.linkedin.com/in/ashley-xu-053598140/"></i>
+                                </a>
+                                <a href="https://github.com/NegaAshley">
+                                    <i class="fab fa-3x fa-github-square frontPageIcons"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="./imgs/city.jpg" alt="A city with a pink and purple tint.">
+                </div>
+            </div>
+        </section>
+
+        <script>
+            $(function () {
+                $(document).scroll(function () {
+                    var $nav = $("#mainNavbar");
+                    $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+                });
+            });
+        </script>
+        <%- include('partials/footer')%>
