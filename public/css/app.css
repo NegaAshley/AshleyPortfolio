@@ -45,7 +45,7 @@ body {
     color:#E71F68;
 }
 
-#headingGroup h1{
+#headingGroup h2{
     font-weight: 100;
     font-size: 4rem;
     background: radial-gradient(circle, #F48FB1 0%,  #CE93D8 20%, #47c3d3 40%, #A5D6A7 60%, #B39DDB 100%);
