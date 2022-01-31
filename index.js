@@ -14,6 +14,10 @@ app.get('/resume', (req, res) => {
     res.render('resume');
 });
 
+app.get('/sitemap', (req, res) => {
+    res.render('sitemap.xml');
+});
+
 const port = process.env.PORT || 3000;//Setting port to pick up port from Heroku.
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
