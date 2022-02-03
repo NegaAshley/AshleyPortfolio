@@ -26,49 +26,50 @@ app.get('/resume', (req, res) => {
     res.render('resume');
 });
 
-// app.get('/sitemap', (req, res) => {
-//     res.render('sitemap.xml');
-// });
+app.get('/sitemap', (req, res) => {
+    res.type('text/plain');
+    res.render('sitemap.xml');
+});
 
 const port = process.env.PORT || 3000;//Setting port to pick up port from Heroku.
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
 });
 
-//Code from sitemap npm documentation for making a sitemape for SEO
-app.get('/sitemap.xml', function (req, res) {
-    res.header('Content-Type', 'application/xml');
-    res.header('Content-Encoding', 'gzip');
-    // if we have a cached entry send it
-    if (sitemap) {
-        res.send(sitemap);
-        return;
-    }
+// //Code from sitemap npm documentation for making a sitemape for SEO
+// app.get('/sitemap.xml', function (req, res) {
+//     res.header('Content-Type', 'application/xml');
+//     res.header('Content-Encoding', 'gzip');
+//     // if we have a cached entry send it
+//     if (sitemap) {
+//         res.send(sitemap);
+//         return;
+//     }
 
-    try {
-        const smStream = new SitemapStream({ hostname: 'https://ashleymxu.com/' });
-        const pipeline = smStream.pipe(createGzip());
+//     try {
+//         const smStream = new SitemapStream({ hostname: 'https://ashleymxu.com/' });
+//         const pipeline = smStream.pipe(createGzip());
 
-        // pipe your entries or directly write them.
-        smStream.write({ url: '/', changefreq: 'monthly', priority: 1.0 });
-        smStream.write({ url: '/resume', changefreq: 'monthly', priority: 0.7 });
-        smStream.write({ url: '/#about', changefreq: 'monthly', priority: 0.7 });
-        smStream.write({ url: '/#contact', changefreq: 'monthly', priority: 0.7 });
+//         // pipe your entries or directly write them.
+//         smStream.write({ url: '/', changefreq: 'monthly', priority: 1.0 });
+//         smStream.write({ url: '/resume', changefreq: 'monthly', priority: 0.7 });
+//         smStream.write({ url: '/#about', changefreq: 'monthly', priority: 0.7 });
+//         smStream.write({ url: '/#contact', changefreq: 'monthly', priority: 0.7 });
 
-        // cache the response
-        streamToPromise(pipeline).then(sm => sitemap = sm);
-        // make sure to attach a write stream such as streamToPromise before ending
-        smStream.end();
-        // stream write the response
-        pipeline.pipe(res).on('error', (e) => { throw e });
-    } catch (e) {
-        console.error(e);
-        res.status(500).end();
-    }
-});
+//         // cache the response
+//         streamToPromise(pipeline).then(sm => sitemap = sm);
+//         // make sure to attach a write stream such as streamToPromise before ending
+//         smStream.end();
+//         // stream write the response
+//         pipeline.pipe(res).on('error', (e) => { throw e });
+//     } catch (e) {
+//         console.error(e);
+//         res.status(500).end();
+//     }
+// });
 
 app.use('/robots.txt', function (req, res, next) {
-    res.type('text/plain')
+    res.type('text/plain');
     res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
 });
 //app.use(robots(__dirname + '/robots.txt'));
