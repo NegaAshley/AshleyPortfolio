@@ -29,7 +29,7 @@ app.get('/resume', (req, res) => {
 
 app.get('/sitemap.xml', (req, res) => {
     res.set('Content-Type', 'text/xml');
-    res.send('/sitemap.xml');
+    res.send('sitemap.xml');
 });
 
 app.listen(port, () => {
