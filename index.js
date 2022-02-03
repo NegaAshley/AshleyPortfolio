@@ -67,9 +67,4 @@ app.get('/sitemap.xml', function (req, res) {
     }
 });
 
-app.use(robots({
-    UserAgent: '*',
-    Disallow: '/',
-    CrawlDelay: '5',
-    Sitemap: 'https://ashleymxu.com/sitemap.xml',
-}));
+app.use(robots(__dirname + '/robots.txt'));
