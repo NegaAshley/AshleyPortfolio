@@ -30,6 +30,11 @@ app.get('/sitemap.xml', (req, res) => {
     res.send('sitemap.xml');
 });
 
+app.get('/robots.txt', (req, res) => {
+    res.set('Content-Type', 'text/plain');
+    res.send('Robots.txt');
+});
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
 });
