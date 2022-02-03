@@ -5,6 +5,10 @@ body {
     font-family: "Nunito", sans-serif;
 }
 
+html {
+    scroll-padding-top: 70px; /* height of sticky header */
+  }
+
 #mainNavbar {
     font-size: 1.5rem;
     font-weight: 100;
