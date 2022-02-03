@@ -67,4 +67,8 @@ app.get('/sitemap.xml', function (req, res) {
     }
 });
 
-app.use(robots(__dirname + '/robots.txt'));
+app.use('/robots.txt', function (req, res, next) {
+    res.type('text/plain')
+    res.send("User-agent: *\nDisallow: /");
+});
+//app.use(robots(__dirname + '/robots.txt'));
