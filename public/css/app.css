@@ -6,7 +6,7 @@ body {
 }
 
 html {
-    scroll-padding-top: 150px; /* height of sticky header */
+    scroll-padding-top: 300px; /* height of sticky header */
   }
 
 #mainNavbar {
