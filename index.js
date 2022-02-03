@@ -3,8 +3,9 @@ const app = express();
 const path = require('path');
 const http = require('http');
 const enforce = require('express-sslify');
-const { SitemapStream, streamToPromise } = require('sitemap')
-const { Readable } = require('stream')
+const { SitemapStream, streamToPromise } = require('sitemap');
+const { Readable } = require('stream');
+const robots = require('express-robots-txt')
 let sitemap;
 
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
@@ -65,3 +66,10 @@ app.get('/sitemap.xml', function (req, res) {
         res.status(500).end();
     }
 });
+
+app.use(robots({
+    UserAgent: '*',
+    Disallow: '/',
+    CrawlDelay: '5',
+    Sitemap: 'https://ashleymxu.com/sitemap.xml',
+}));
