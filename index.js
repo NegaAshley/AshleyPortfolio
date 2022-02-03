@@ -6,6 +6,7 @@ const enforce = require('express-sslify');
 const { SitemapStream, streamToPromise } = require('sitemap');
 const { Readable } = require('stream');
 const robots = require('express-robots-txt')
+const port = process.env.PORT || 3000;//Setting port to pick up port from Heroku.
 let sitemap;
 
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
@@ -26,12 +27,10 @@ app.get('/resume', (req, res) => {
     res.render('resume');
 });
 
-app.get('/sitemap', (req, res) => {
-    res.type('text/plain');
-    res.render('sitemap.xml');
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile('sitemap.xml');
 });
 
-const port = process.env.PORT || 3000;//Setting port to pick up port from Heroku.
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
 });
