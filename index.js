@@ -26,9 +26,9 @@ app.get('/resume', (req, res) => {
     res.render('resume');
 });
 
-app.get('/sitemap', (req, res) => {
-    res.render('sitemap.xml');
-});
+// app.get('/sitemap', (req, res) => {
+//     res.render('sitemap.xml');
+// });
 
 const port = process.env.PORT || 3000;//Setting port to pick up port from Heroku.
 app.listen(port, () => {
@@ -72,3 +72,8 @@ app.use('/robots.txt', function (req, res, next) {
     res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
 });
 //app.use(robots(__dirname + '/robots.txt'));
+
+// app.use('/sitemap.xml', function (req, res, next) {
+//     res.type('text/plain')
+//     res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
+// });
