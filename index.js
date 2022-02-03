@@ -32,7 +32,7 @@ app.get('/sitemap.xml', (req, res) => {
 
 app.get('/robots.txt', (req, res) => {
     res.set('Content-Type', 'text/plain');
-    res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml";
+    res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
     // res.send('Robots.txt');
 });
 
