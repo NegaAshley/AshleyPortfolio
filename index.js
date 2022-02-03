@@ -39,8 +39,8 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
 });
 
-app.use('/robots.txt', function (req, res, next) {
-    res.type('text/plain');
-    res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
-});
+// app.use('/robots.txt', function (req, res, next) {
+//     res.type('text/plain');
+//     res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
+// });
 //app.use(robots(__dirname + '/robots.txt'));
