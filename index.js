@@ -3,9 +3,7 @@ const app = express();
 const path = require('path');
 const http = require('http');
 const enforce = require('express-sslify');
-const robots = require('express-robots-txt')
 const port = process.env.PORT || 3000;//Setting port to pick up port from Heroku.
-let sitemap;
 
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
@@ -30,13 +28,10 @@ app.get('/sitemap.xml', (req, res) => {
     res.send('sitemap.xml');
 });
 
-// app.get('/robots.txt', (req, res) => {
-//     res.set('Content-Type', 'text/plain');
-//     //res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
-//     res.render('Robots.txt');
-// });
-
-app.use(robots('Robots.txt'));
+app.get('/robots.txt', (req, res) => {
+    res.set('Content-Type', 'text/plain');
+    res.send("User-agent: *\nDisallow: \nSitemap: https://www.ashleymxu.com/sitemap.xml");
+});
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
