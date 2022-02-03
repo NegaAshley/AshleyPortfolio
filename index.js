@@ -2,12 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const http = require('http');
-const enforce = require('express-sslify');
-
-//Enforcing redirection to HTTPS
-// Use enforce.HTTPS({ trustProtoHeader: true }) in case you are behind
-// a load balancer (e.g. Heroku). See further comments below
-//app.use(enforce.HTTPS());
+//const enforce = require('express-sslify');
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
