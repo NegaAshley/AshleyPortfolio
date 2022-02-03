@@ -69,6 +69,6 @@ app.get('/sitemap.xml', function (req, res) {
 
 app.use('/robots.txt', function (req, res, next) {
     res.type('text/plain')
-    res.send("User-agent: *\nDisallow: /");
+    res.send("User-agent: *\nDisallow: /\nSitemap:'https://www.ashleymxu.com/sitemap.xml");
 });
 //app.use(robots(__dirname + '/robots.txt'));
