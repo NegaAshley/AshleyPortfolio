@@ -20,6 +20,7 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.2",
+    "express-sslify": "^1.2.0",
     "nodemon": "^2.0.15",
     "openssl": "^2.0.0"
   }

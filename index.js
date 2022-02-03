@@ -1,6 +1,17 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const http = require('http');
+const enforce = require('express-sslify');
+
+//Enforcing redirection to HTTPS
+// Use enforce.HTTPS({ trustProtoHeader: true }) in case you are behind
+// a load balancer (e.g. Heroku). See further comments below
+app.use(enforce.HTTPS());
+
+http.createServer(app).listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});
 
 app.use(express.static(path.join(__dirname, '/public')));//Serve static assets, such as CSS.  Takes absolute path to index.js file and adding on public.
 app.set('view engine', 'ejs');
